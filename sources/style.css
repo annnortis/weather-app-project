@@ -1,0 +1,124 @@
+body {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/072/791/original/background-sky.jpg?1679336788);
+  background-size: 100%;
+  font-family: "IBM Plex Mono", monospace;
+  color: #3d4377;
+  font-weight: bolder;
+}
+
+.container {
+  background: rgb(255, 255, 255, 0.4);
+  border: 1px solid rgb(255, 255, 255, 0.4);
+  border-radius: 10px;
+  margin-top: 7px;
+  height: 560px;
+}
+
+.info-input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.info-input .city-input {
+  margin-left: 50px;
+  width: 50%;
+}
+
+.info-input .search-city {
+  width: 19%;
+  margin-left: 5px;
+}
+
+.info-input .location-button {
+  width: 19%;
+  margin-left: 5px;
+  border: 1px solid rgb(118, 118, 118);
+  border-radius: 2px;
+  padding: 3px;
+  transition: all 100ms ease-in-out;
+}
+
+.location-button:hover {
+  cursor: pointer;
+  background: #e5e5e5;
+}
+
+.main-image {
+  width: 200px;
+  margin-left: 25px;
+}
+
+.main-weather {
+  font-size: 12px;
+  padding: 0px 77px;
+}
+
+h2,
+h6,
+h1,
+h4 {
+  margin: 10px;
+  font-family: "Press Start 2P", cursive;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+h1 {
+  font-size: 33px;
+}
+
+h4,
+h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 10px;
+}
+.additional-data {
+  padding: 10px 0 0 40px;
+}
+
+.components {
+  padding: 15px;
+  width: 42%;
+  font-size: 15px;
+  border: 1px solid rgb(118, 118, 118);
+  font-weight: bold;
+  background: rgb(255, 255, 255, 0.4);
+}
+
+.image-cloud {
+  width: 100px;
+  display: block;
+  margin: 10px auto;
+}
+
+.image-rain {
+  width: 90px;
+  display: block;
+  margin: 15px auto;
+}
+
+.coder {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: lighter;
+}
+
+.days {
+  background: rgb(255, 255, 255, 0.4);
+  padding: 10px 0;
+  border: 1px solid rgb(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
