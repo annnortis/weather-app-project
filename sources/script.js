@@ -11,9 +11,14 @@ function changeCity(event) {
 }
 
 function showWeather(response) {
+  console.log(response);
   let temp = Math.round(response.data.main.temp);
   let tempElement = document.querySelector("#degrees");
   tempElement.innerHTML = `${temp}°`;
+  let tempMax = document.querySelector("#highest-temp");
+  tempMax.innerHTML = `H:${Math.round(response.data.main.temp_max)}°`;
+  let tempMin = document.querySelector("#lowest-temp");
+  tempMin.innerHTML = `L:${Math.round(response.data.main.temp_min)}°`;
   let weatherCondition = document.querySelector(".main-weather");
   weatherCondition.innerHTML = `${
     response.data.weather[0].description.charAt(0).toUpperCase() +
@@ -51,18 +56,14 @@ function changeUserData(response) {
   }`;
 }
 
+let city = "Berlin";
+let apiKey = `fda3688b1db05987dd5d07c237aecfba`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+axios.get(apiUrl).then(showWeather);
+
 let userLocationButton = document.querySelector(".location-button");
 userLocationButton.addEventListener("click", getUserLocation);
 
-//function degreesToCelsius(event) {
-// event.preventDefault();
-// degrees.innerHTML = "12°";
-//}
-
-//function degreesToFarenheit(event) {
-// event.preventDefault();
-// degrees.innerHTML = "53°";
-//}
 let userCity = document.querySelector(".info-input");
 userCity.addEventListener("click", changeCity);
 
@@ -87,14 +88,3 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 userDate.innerHTML = `${day} ${hours}:${minutes}`;
-
-//let degrees = document.querySelector("#degrees");
-//let degreesCelsius = document.querySelector("#celsius-link");
-//let degreesFarenheit = document.querySelector("#farenheit-link");
-//degreesCelsius.addEventListener("click", degreesToCelsius);
-//degreesFarenheit.addEventListener("click", degreesToFarenheit);
-
-let city = "Berlin";
-let apiKey = `fda3688b1db05987dd5d07c237aecfba`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-axios.get(apiUrl).then(showWeather);
