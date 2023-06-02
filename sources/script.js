@@ -29,6 +29,12 @@ function showWeather(response) {
     "src",
     `sources/images/weather-icons/${response.data.weather[0].icon}.png`
   );
+  let feelsLikeElement = document.querySelector("#feels-like");
+  feelsLikeElement.innerHTML = `${Math.round(response.data.main.feels_like)}°`;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `${Math.round(response.data.main.humidity)}%`;
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = `${Math.round(response.data.wind.speed * 3.6)} km/h`;
 }
 
 function getUserLocation(event) {
