@@ -19,6 +19,11 @@ function showWeather(response) {
     response.data.weather[0].description.charAt(0).toUpperCase() +
     response.data.weather[0].description.slice(1)
   }`;
+  let iconElement = document.querySelector(".main-image");
+  iconElement.setAttribute(
+    "src",
+    `sources/images/weather-icons/${response.data.weather[0].icon}.png`
+  );
 }
 
 function getUserLocation(event) {
@@ -88,3 +93,8 @@ userDate.innerHTML = `${day} ${hours}:${minutes}`;
 //let degreesFarenheit = document.querySelector("#farenheit-link");
 //degreesCelsius.addEventListener("click", degreesToCelsius);
 //degreesFarenheit.addEventListener("click", degreesToFarenheit);
+
+let city = "Berlin";
+let apiKey = `fda3688b1db05987dd5d07c237aecfba`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+axios.get(apiUrl).then(showWeather);
