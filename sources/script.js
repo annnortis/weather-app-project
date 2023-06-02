@@ -11,10 +11,8 @@ function changeCity(event) {
 }
 
 function showWeather(response) {
-  console.log(response);
-  let temp = Math.round(response.data.main.temp);
   let tempElement = document.querySelector("#degrees");
-  tempElement.innerHTML = `${temp}°`;
+  tempElement.innerHTML = `${Math.round(response.data.main.temp)}°`;
   let tempMax = document.querySelector("#highest-temp");
   tempMax.innerHTML = `H:${Math.round(response.data.main.temp_max)}°`;
   let tempMin = document.querySelector("#lowest-temp");
@@ -62,6 +60,13 @@ function changeUserData(response) {
   }`;
 }
 
+function showFarenheitTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#degrees");
+  let farenheitTemp = (tempElement.innerHTML * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(farenheitTemp);
+}
+
 let city = "Berlin";
 let apiKey = `fda3688b1db05987dd5d07c237aecfba`;
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
@@ -94,3 +99,6 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 userDate.innerHTML = `${day} ${hours}:${minutes}`;
+
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", showFarenheitTemp);
