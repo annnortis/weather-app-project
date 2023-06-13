@@ -53,6 +53,17 @@ body {
   padding: 0px 77px;
 }
 
+.link {
+  text-decoration: none;
+  color: #549ecd;
+}
+
+.active {
+  color: #3d4377;
+  text-decoration: none;
+  cursor: default;
+}
+
 h2,
 h6,
 h1,
